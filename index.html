@@ -241,7 +241,7 @@
         aspect-ratio: auto;
         overflow: visible;
         background: linear-gradient(180deg, #020a12 0%, #04101b 100%);
-        }
+      }
 
       .card::before {
         content: "";
@@ -249,7 +249,7 @@
         top: 0;
         left: 0;
         right: 0;
-        height: min(calc(100vw * 1402 / 1122), 500px);
+        height: min(calc(100vw * 1402 / 1122), 520px);
         background:
           linear-gradient(180deg, rgba(2, 10, 18, 0.02), rgba(2, 10, 18, 0.02)),
           url("./assets/background.png") top center / 100% auto no-repeat;
@@ -258,7 +258,9 @@
 
       .overlay {
         position: relative;
-        min-height: 100vh;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
       }
 
       .intro {
@@ -272,7 +274,7 @@
         left: auto;
         top: auto;
         width: auto;
-        margin: min(calc(100vw * 1402 / 1122), 500px) 5.5% 0;
+        margin: min(calc(100vw * 1402 / 1122), 520px) 5.5% 0;
         padding-top: 1rem;
       }
 
@@ -299,7 +301,7 @@
         position: relative;
         right: auto;
         bottom: auto;
-        margin: 1.1rem 5.5% 1.5rem;
+        margin: 1.1rem 5.5% 2rem;
         justify-content: flex-end;
       }
 
@@ -321,6 +323,10 @@
 
       .detail-list .value {
         font-size: clamp(0.95rem, 2.7vw, 1.28rem);
+      }
+
+      .address {
+        line-height: 1.22;
       }
     }
 
@@ -348,6 +354,31 @@
 
       .hours-title {
         margin-bottom: 0.15rem;
+      }
+
+      .name {
+        letter-spacing: -0.03em;
+      }
+
+      .contact-list,
+      .detail-list {
+        gap: 1rem;
+      }
+
+      .row {
+        align-items: start;
+      }
+
+      .icon {
+        margin-top: 0.15rem;
+      }
+
+      .value {
+        font-size: 0.98rem;
+      }
+
+      .detail-list .value {
+        font-size: 0.94rem;
       }
     }
   </style>
