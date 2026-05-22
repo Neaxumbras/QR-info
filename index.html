@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06111f">
+  <title>Joel Sanchez - Tecnoglobal</title>
+  <style>
+    :root {
+      --bg: #050c16;
+      --bg2: #09182b;
+      --card: rgba(5, 13, 24, 0.94);
+      --line: rgba(42, 172, 235, 0.42);
+      --blue: #21a9ff;
+      --blue-soft: #67c8ff;
+      --text: #f4f7fb;
+      --muted: #c7d0da;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 16% 12%, rgba(33, 169, 255, 0.14), transparent 26%),
+        radial-gradient(circle at 82% 24%, rgba(33, 169, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 86% 84%, rgba(33, 169, 255, 0.10), transparent 22%),
+        linear-gradient(180deg, #020812 0%, var(--bg) 38%, var(--bg2) 100%);
+      display: grid;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: min(100%, 880px);
+      overflow: hidden;
+      border: 1px solid rgba(33, 169, 255, 0.25);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(4, 12, 22, 0.96), rgba(5, 14, 26, 0.94)),
+        var(--card);
+      box-shadow: 0 28px 80px var(--shadow), inset 0 0 80px rgba(33, 169, 255, 0.04);
+      position: relative;
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .card::before {
+      width: 520px;
+      height: 520px;
+      right: -220px;
+      top: 140px;
+      background:
+        radial-gradient(circle, rgba(33, 169, 255, 0.22) 0 1px, transparent 1px 100%);
+      background-size: 18px 18px;
+      opacity: 0.28;
+    }
+
+    .card::after {
+      width: 560px;
+      height: 560px;
+      left: -260px;
+      bottom: -340px;
+      background:
+        radial-gradient(circle, rgba(33, 169, 255, 0.2) 0 1px, transparent 1px 100%);
+      background-size: 16px 16px;
+      opacity: 0.26;
+    }
+
+    .inner {
+      position: relative;
+      z-index: 1;
+      padding: 42px 44px 34px;
+    }
+
+    .top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 70px;
+      height: 70px;
+      flex: 0 0 auto;
+    }
+
+    .brand-name {
+      font-size: clamp(34px, 5vw, 54px);
+      font-style: italic;
+      letter-spacing: -1.4px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .partner {
+      border-left: 2px solid var(--blue);
+      padding-left: 24px;
+      text-align: left;
+    }
+
+    .partner-title {
+      font-size: clamp(28px, 3.5vw, 48px);
+      line-height: 0.96;
+      font-style: italic;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .partner-sub {
+      margin-top: 14px;
+      color: var(--text);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 18px;
+      align-items: end;
+      margin-top: 30px;
+    }
+
+    .name {
+      margin: 0;
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      font-weight: 800;
+    }
+
+    .role {
+      margin: 18px 0 6px;
+      color: var(--muted);
+      font-size: clamp(24px, 3.6vw, 34px);
+      line-height: 1.1;
+    }
+
+    .company {
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(26px, 3.6vw, 38px);
+      line-height: 1.1;
+    }
+
+    .machine {
+      height: 300px;
+      position: relative;
+      justify-self: end;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .machine .tank {
+      position: absolute;
+      left: 28px;
+      right: 0;
+      bottom: 18px;
+      height: 70px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #1a3d67, #071527 55%, #030a14);
+      box-shadow: inset 0 0 24px rgba(120, 183, 255, 0.16), 0 14px 28px rgba(0, 0, 0, 0.36);
+    }
+
+    .machine .body {
+      position: absolute;
+      right: 26px;
+      top: 12px;
+      width: 210px;
+      height: 198px;
+      border-radius: 12px;
+      background: linear-gradient(160deg, #112b48 0%, #081321 75%);
+      border: 1px solid rgba(103, 200, 255, 0.3);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32), inset 0 0 26px rgba(103, 200, 255, 0.1);
+    }
+
+    .machine .body::before {
+      content: "";
+      position: absolute;
+      inset: -8px -8px 16px -8px;
+      border-radius: 16px;
+      border: 1px solid rgba(33, 169, 255, 0.18);
+    }
+
+    .machine .panel {
+      position: absolute;
+      right: 26px;
+      top: 55px;
+      width: 44px;
+      height: 52px;
+      border-radius: 6px;
+      background: linear-gradient(180deg, #14283e, #0b1522);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .machine .panel::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, #7fd5ff, #266f9f);
+      box-shadow: 0 0 14px rgba(103, 200, 255, 0.4);
+    }
+
+    .machine .feet::before,
+    .machine .feet::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 22px;
+      height: 26px;
+      background: linear-gradient(180deg, #12273e, #040b14);
+      border-radius: 0 0 8px 8px;
+    }
+
+    .machine .feet::before {
+      left: 92px;
+    }
+
+    .machine .feet::after {
+      right: 62px;
+    }
+
+    .section-line {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(33, 169, 255, 0), rgba(33, 169, 255, 0.7), rgba(33, 169, 255, 0));
+      margin: 28px 0;
+    }
+
+    .actions,
+    .details {
+      display: grid;
+      gap: 14px;
+    }
+
+    .action,
+    .detail {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      color: var(--text);
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    a.action {
+      padding: 10px 0;
+      border-radius: 18px;
+      transition: background-color 0.16s ease, transform 0.16s ease;
+    }
+
+    a.action:hover {
+      background: rgba(33, 169, 255, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border: 2px solid var(--blue);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: inset 0 0 18px rgba(33, 169, 255, 0.1);
+    }
+
+    .icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--blue);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .value {
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.15;
+      overflow-wrap: anywhere;
+    }
+
+    .detail-copy {
+      font-size: clamp(19px, 2.4vw, 25px);
+      line-height: 1.35;
+    }
+
+    .detail-copy strong {
+      display: block;
+      color: var(--blue);
+      font-size: clamp(22px, 3vw, 32px);
+      margin-bottom: 6px;
+    }
+
+    .save {
+      width: 100%;
+      margin-top: 28px;
+      border: 0;
+      border-radius: 20px;
+      padding: 18px 20px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #23aefe, #0d74b8);
+      box-shadow: 0 14px 32px rgba(33, 169, 255, 0.28);
+    }
+
+    .note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .machine {
+        order: -1;
+        justify-self: center;
+        height: 240px;
+        max-width: 240px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 0;
+      }
+
+      .card {
+        width: 100%;
+        min-height: 100vh;
+        border: 0;
+        border-radius: 0;
+      }
+
+      .inner {
+        padding: 26px 20px 28px;
+      }
+
+      .top {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .brand-wrap {
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 52px;
+        height: 52px;
+      }
+
+      .partner {
+        padding-left: 14px;
+      }
+
+      .partner-sub {
+        font-size: 11px;
+        letter-spacing: 2.8px;
+      }
+
+      .machine {
+        height: 200px;
+      }
+
+      .machine .body {
+        width: 176px;
+        height: 162px;
+      }
+
+      .machine .panel {
+        width: 34px;
+        height: 42px;
+      }
+
+      .value {
+        font-size: 18px;
+      }
+
+      .detail-copy {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card" aria-label="Tarjeta de contacto de Joel Sanchez">
+    <section class="inner">
+      <header class="top">
+        <div class="brand-wrap">
+          <svg class="brand-mark" viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="34" fill="#ffffff"></circle>
+            <path d="M22 54c3-17 18-28 35-29" stroke="#07111d" stroke-width="5" fill="none" stroke-linecap="round"></path>
+            <path d="M18 60c2-23 22-39 44-42" stroke="#07111d" stroke-width="5" fill="none" stroke-linecap="round"></path>
+            <path d="M15 66c0-28 24-49 50-53" stroke="#07111d" stroke-width="5" fill="none" stroke-linecap="round"></path>
+          </svg>
+          <div class="brand-name">tecnoglobal</div>
+        </div>
+        <div class="partner" aria-label="Atlas Copco socio autorizado">
+          <div class="partner-title">Atlas Copco</div>
+          <div class="partner-sub">Socio autorizado</div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <h1 class="name">Joel Sanchez</h1>
+          <p class="role">Ingeniero de servicio tecnico</p>
+          <p class="company">Tecnoglobal - Atlas Copco</p>
+        </div>
+        <div class="machine" aria-hidden="true">
+          <div class="body"></div>
+          <div class="panel"></div>
+          <div class="tank"></div>
+          <div class="feet"></div>
+        </div>
+      </section>
+
+      <div class="section-line"></div>
+
+      <section class="actions" aria-label="Acciones de contacto">
+        <a class="action" href="tel:+34654311447">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M6.7 4.5h2.6l1.5 4.2-1.7 1.7a16 16 0 0 0 5.2 5.2l1.7-1.7 4.2 1.5v2.6c0 .6-.4 1-1 1C11.9 19 5 12.1 5 5.5c0-.6.5-1 1.7-1z"></path>
+            </svg>
+          </span>
+          <span class="value">654 31 14 47</span>
+        </a>
+
+        <a class="action" href="mailto:jsanchez@tecnoglobal.es?subject=Contacto%20desde%20tarjeta%20digital">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 6h16v12H4z"></path>
+              <path d="m4 7 8 6 8-6"></path>
+            </svg>
+          </span>
+          <span class="value">jsanchez@tecnoglobal.es</span>
+        </a>
+
+        <a class="action" href="https://www.tecnoglobal.es" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18"></path>
+              <path d="M12 3a15 15 0 0 1 0 18"></path>
+              <path d="M12 3a15 15 0 0 0 0 18"></path>
+            </svg>
+          </span>
+          <span class="value">www.tecnoglobal.es</span>
+        </a>
+      </section>
+
+      <div class="section-line"></div>
+
+      <section class="details" aria-label="Datos adicionales">
+        <a class="detail" href="https://maps.google.com/?q=Pol.%20Ind.%20L'Ametlla%20Park%20Calle%20Mas%20Dorca%2018%20nave%205%2008480%20L'Ametlla%20del%20Valles" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11z"></path>
+              <circle cx="12" cy="10" r="2.6"></circle>
+            </svg>
+          </span>
+          <span class="detail-copy">
+            Pol. Ind. L'Ametlla Park · Calle Mas Dorca, 18 nave 5<br>
+            08480 L'Ametlla del Valles (BCN) · Spain
+          </span>
+        </a>
+
+        <div class="detail">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 7v5l3 2"></path>
+            </svg>
+          </span>
+          <span class="detail-copy">
+            <strong>Horario de atencion al cliente</strong>
+            Lunes a jueves de 8:00h a 17:00h<br>
+            Viernes de 08:00h a 15:00h
+          </span>
+        </div>
+      </section>
+
+      <button class="save" type="button" onclick="downloadVCard()">Guardar contacto</button>
+      <p class="note">Telefono, correo y web son interactivos. El boton descarga una vCard compatible con iPhone, Android, Outlook y Google Contacts.</p>
+    </section>
+  </main>
+
+  <script>
+    function downloadVCard() {
+      const vcard = [
+        "BEGIN:VCARD",
+        "VERSION:3.0",
+        "N:Sanchez;Joel;;;",
+        "FN:Joel Sanchez",
+        "ORG:Tecnoglobal",
+        "TITLE:Ingeniero de servicio tecnico",
+        "TEL;TYPE=CELL,VOICE:+34654311447",
+        "EMAIL;TYPE=WORK:jsanchez@tecnoglobal.es",
+        "URL:https://www.tecnoglobal.es",
+        "ADR;TYPE=WORK:;;Pol. Ind. L'Ametlla Park Calle Mas Dorca, 18 nave 5;L'Ametlla del Valles;Barcelona;08480;Spain",
+        "NOTE:Tecnoglobal - Atlas Copco",
+        "END:VCARD"
+      ].join("\n");
+
+      const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "Joel-Sanchez-Tecnoglobal.vcf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
