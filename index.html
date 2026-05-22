@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#04101b">
-  <title>Joel Sánchez - Tecnoglobal</title>
+  <title>Joel S&aacute;nchez - Tecnoglobal</title>
   <style>
     :root {
       --text: #f5f8fc;
@@ -228,88 +228,116 @@
     @media (max-width: 900px) {
       body {
         padding: 0;
+        display: block;
       }
 
       .card {
         width: 100%;
-        min-height: 100vh;
-        aspect-ratio: auto;
+        aspect-ratio: 1122 / 1402;
+        min-height: 0;
         background-position: top center;
+        background-size: cover;
       }
 
       .overlay {
-        background:
-          linear-gradient(180deg, rgba(2, 10, 18, 0) 0%, rgba(2, 10, 18, 0) 41%, rgba(2, 10, 18, 0.20) 54%, rgba(2, 10, 18, 0.90) 67%, rgba(2, 10, 18, 0.98) 100%);
+        background: none;
       }
 
       .intro {
         left: 6%;
-        top: 23.2%;
-        width: 64%;
+        top: 23.8%;
+        width: 66%;
       }
 
       .contact-panel {
         left: 5.5%;
-        top: 45%;
-        width: 89%;
-        padding-top: 1.25rem;
+        top: 44.4%;
+        width: 90%;
+        padding-top: 1rem;
       }
 
       .row {
-        grid-template-columns: 4.4rem minmax(0, 1fr);
-        gap: 0.95rem;
+        grid-template-columns: 3.55rem minmax(0, 1fr);
+        gap: 0.8rem;
       }
 
       .icon {
-        width: 3.6rem;
-        height: 3.6rem;
+        width: 3.1rem;
+        height: 3.1rem;
       }
 
       .icon svg {
-        width: 1.7rem;
-        height: 1.7rem;
-      }
-
-      .save-icon {
-        width: 3.6rem;
-        height: 3.6rem;
-      }
-
-      .save-icon svg {
         width: 1.45rem;
         height: 1.45rem;
       }
 
       .section-divider {
-        margin: 1.25rem 0;
+        margin: 0.9rem 0;
       }
 
       .actions {
-        position: static;
-        margin: 1.5rem 5.5% 0;
+        position: absolute;
+        right: 5%;
+        bottom: 2.4%;
         justify-content: flex-end;
       }
 
       .save {
         width: 3.6rem;
         height: 3.6rem;
-        border-radius: 1rem;
+        border-radius: 50%;
       }
 
       .save svg {
         width: 1.45rem;
         height: 1.45rem;
       }
+
+      .value {
+        font-size: clamp(1rem, 3vw, 1.45rem);
+        line-height: 1.18;
+      }
+
+      .detail-list .value {
+        font-size: clamp(0.95rem, 2.7vw, 1.28rem);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .intro {
+        width: 69%;
+      }
+
+      .name {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+
+      .role {
+        font-size: clamp(0.95rem, 3.8vw, 1.35rem);
+      }
+
+      .company {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+      }
+
+      .contact-panel {
+        top: 44%;
+        width: 91.5%;
+      }
+
+      .hours-title {
+        margin-bottom: 0.15rem;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="card" aria-label="Tarjeta de contacto de Joel Sánchez">
+  <main class="card" aria-label="Tarjeta de contacto de Joel S&aacute;nchez">
     <div class="overlay">
       <section class="intro">
-        <h1 class="name">Joel Sánchez</h1>
+        <h1 class="name">Joel S&aacute;nchez</h1>
         <p class="role">Ingeniero de servicio tecnico</p>
-        <p class="company">Tecnoglobal · Atlas Copco</p>
+        <p class="company">Tecnoglobal &middot; Atlas Copco</p>
       </section>
 
       <section class="contact-panel" aria-label="Informacion de contacto">
@@ -357,8 +385,8 @@
               </svg>
             </span>
             <span class="value address">
-              Pol. Ind. L'Ametlla Park · Calle Mas Dorca, 18 nave 5<br>
-              08480 L'Ametlla del Valles (BCN) · Spain
+              Pol. Ind. L'Ametlla Park &middot; Calle Mas Dorca, 18 nave 5<br>
+              08480 L'Ametlla del Valles (BCN) &middot; Spain
             </span>
           </a>
 
@@ -397,8 +425,8 @@
       const vcard = [
         "BEGIN:VCARD",
         "VERSION:3.0",
-        "N:Sánchez;Joel;;;",
-        "FN:Joel Sánchez",
+        "N:S\\u00e1nchez;Joel;;;",
+        "FN:Joel S\\u00e1nchez",
         "ORG:Tecnoglobal",
         "TITLE:Ingeniero de servicio tecnico",
         "TEL;TYPE=CELL,VOICE:+34654311447",
@@ -413,7 +441,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "Joel-Sánchez-Tecnoglobal.vcf";
+      link.download = "Joel-Sanchez-Tecnoglobal.vcf";
       document.body.appendChild(link);
       link.click();
       link.remove();
