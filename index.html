@@ -45,6 +45,10 @@
       box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
     }
 
+    .card::before {
+      content: none;
+    }
+
     .overlay {
       position: absolute;
       inset: 0;
@@ -233,26 +237,42 @@
 
       .card {
         width: 100%;
-        aspect-ratio: 1122 / 1402;
-        min-height: 0;
-        background-position: top center;
-        background-size: cover;
+        min-height: 100vh;
+        aspect-ratio: auto;
+        overflow: visible;
+        background: linear-gradient(180deg, #020a12 0%, #04101b 100%);
+        }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: min(calc(100vw * 1402 / 1122), 500px);
+        background:
+          linear-gradient(180deg, rgba(2, 10, 18, 0.02), rgba(2, 10, 18, 0.02)),
+          url("./assets/background.png") top center / 100% auto no-repeat;
+        pointer-events: none;
       }
 
       .overlay {
-        background: none;
+        position: relative;
+        min-height: 100vh;
       }
 
       .intro {
         left: 6%;
-        top: 23.8%;
-        width: 66%;
+        top: clamp(160px, 43vw, 240px);
+        width: 62%;
       }
 
       .contact-panel {
-        left: 5.5%;
-        top: 44.4%;
-        width: 90%;
+        position: relative;
+        left: auto;
+        top: auto;
+        width: auto;
+        margin: min(calc(100vw * 1402 / 1122), 500px) 5.5% 0;
         padding-top: 1rem;
       }
 
@@ -276,9 +296,10 @@
       }
 
       .actions {
-        position: absolute;
-        right: 5%;
-        bottom: 2.4%;
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin: 1.1rem 5.5% 1.5rem;
         justify-content: flex-end;
       }
 
@@ -305,7 +326,8 @@
 
     @media (max-width: 520px) {
       .intro {
-        width: 69%;
+        top: clamp(150px, 42vw, 215px);
+        width: 68%;
       }
 
       .name {
@@ -321,7 +343,6 @@
       }
 
       .contact-panel {
-        top: 44%;
         width: 91.5%;
       }
 
