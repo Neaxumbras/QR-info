@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#04101b">
-  <title>Joel Sanchez - Tecnoglobal</title>
+  <title>Joel Sánchez - Tecnoglobal</title>
   <style>
     :root {
       --text: #f5f8fc;
@@ -86,7 +86,7 @@
       position: absolute;
       left: 6.5%;
       top: 43.7%;
-      width: 56.8%;
+      width: 60.5%;
       border-top: 2px solid var(--line);
       padding-top: 3.3%;
     }
@@ -108,6 +108,17 @@
       gap: 1.55rem;
       color: inherit;
       text-decoration: none;
+    }
+
+    .phone-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 4.8rem;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .phone-row .row {
+      min-width: 0;
     }
 
     a.row {
@@ -149,6 +160,10 @@
       text-shadow: 0 3px 10px rgba(0, 0, 0, 0.24);
     }
 
+    .detail-list .value {
+      font-size: clamp(1.1rem, 2.85vw, 2rem);
+    }
+
     .section-divider {
       height: 2px;
       background: var(--line);
@@ -164,6 +179,29 @@
       margin-bottom: 0.35rem;
       color: var(--blue);
       font-weight: 500;
+    }
+
+    .save-icon {
+      width: 4.8rem;
+      height: 4.8rem;
+      border: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #1ba9ff, #0b74b8);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 10px 28px rgba(11, 116, 184, 0.34);
+    }
+
+    .save-icon svg {
+      width: 2rem;
+      height: 2rem;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .actions {
@@ -235,6 +273,11 @@
         gap: 0.95rem;
       }
 
+      .phone-row {
+        grid-template-columns: minmax(0, 1fr) 3.6rem;
+        gap: 0.75rem;
+      }
+
       .icon {
         width: 3.6rem;
         height: 3.6rem;
@@ -243,6 +286,16 @@
       .icon svg {
         width: 1.7rem;
         height: 1.7rem;
+      }
+
+      .save-icon {
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+
+      .save-icon svg {
+        width: 1.45rem;
+        height: 1.45rem;
       }
 
       .section-divider {
@@ -270,24 +323,33 @@
   </style>
 </head>
 <body>
-  <main class="card" aria-label="Tarjeta de contacto de Joel Sanchez">
+  <main class="card" aria-label="Tarjeta de contacto de Joel Sánchez">
     <div class="overlay">
       <section class="intro">
-        <h1 class="name">Joel Sanchez</h1>
+        <h1 class="name">Joel Sánchez</h1>
         <p class="role">Ingeniero de servicio tecnico</p>
         <p class="company">Tecnoglobal · Atlas Copco</p>
       </section>
 
       <section class="contact-panel" aria-label="Informacion de contacto">
         <div class="contact-list">
-          <a class="row" href="tel:+34654311447" aria-label="Llamar al 654 31 14 47">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M6.7 4.5h2.6l1.5 4.2-1.7 1.7a16 16 0 0 0 5.2 5.2l1.7-1.7 4.2 1.5v2.6c0 .6-.4 1-1 1C11.9 19 5 12.1 5 5.5c0-.6.5-1 1.7-1z"></path>
+          <div class="phone-row">
+            <a class="row" href="tel:+34654311447" aria-label="Llamar al 654 31 14 47">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6.7 4.5h2.6l1.5 4.2-1.7 1.7a16 16 0 0 0 5.2 5.2l1.7-1.7 4.2 1.5v2.6c0 .6-.4 1-1 1C11.9 19 5 12.1 5 5.5c0-.6.5-1 1.7-1z"></path>
+                </svg>
+              </span>
+              <span class="value">654 31 14 47</span>
+            </a>
+            <button class="save-icon" type="button" onclick="downloadVCard()" aria-label="Guardar contacto">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 4.5h11l3 3V19a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19z"></path>
+                <path d="M8 4.5v5h7v-5"></path>
+                <path d="M8 20.5v-6h8v6"></path>
               </svg>
-            </span>
-            <span class="value">654 31 14 47</span>
-          </a>
+            </button>
+          </div>
 
           <a class="row" href="mailto:jsanchez@tecnoglobal.es?subject=Contacto%20desde%20tarjeta%20digital" aria-label="Enviar correo a jsanchez arroba tecnoglobal punto es">
             <span class="icon" aria-hidden="true">
@@ -358,8 +420,8 @@
       const vcard = [
         "BEGIN:VCARD",
         "VERSION:3.0",
-        "N:Sanchez;Joel;;;",
-        "FN:Joel Sanchez",
+        "N:Sánchez;Joel;;;",
+        "FN:Joel Sánchez",
         "ORG:Tecnoglobal",
         "TITLE:Ingeniero de servicio tecnico",
         "TEL;TYPE=CELL,VOICE:+34654311447",
@@ -374,7 +436,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = "Joel-Sanchez-Tecnoglobal.vcf";
+      link.download = "Joel-Sánchez-Tecnoglobal.vcf";
       document.body.appendChild(link);
       link.click();
       link.remove();
