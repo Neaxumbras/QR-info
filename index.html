@@ -2,17 +2,15 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#04101b">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#03101b">
   <title>Joel S&aacute;nchez - Tecnoglobal</title>
   <style>
     :root {
-      --text: #f5f8fc;
-      --muted: rgba(245, 248, 252, 0.86);
+      --bg: #020a12;
       --blue: #1aa9ff;
-      --panel: rgba(2, 12, 22, 0.82);
-      --panel-strong: rgba(2, 12, 22, 0.92);
-      --line: rgba(26, 169, 255, 0.78);
+      --white: #f5f8fc;
+      --muted: rgba(245, 248, 252, 0.86);
     }
 
     * {
@@ -23,114 +21,119 @@
     body {
       margin: 0;
       min-height: 100%;
-      background: #020a12;
-      color: var(--text);
+      background: var(--bg);
+      color: var(--white);
       font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     }
 
     body {
-      display: grid;
-      place-items: center;
-      padding: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
     }
 
-    .card {
+    .page {
+      width: min(100vw, 560px);
+      min-height: 100vh;
+      background: linear-gradient(180deg, #020a12 0%, #04101b 100%);
+    }
+
+    .poster {
       position: relative;
-      width: min(100%, 1122px);
+      width: 100%;
       aspect-ratio: 1122 / 1402;
-      overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(1, 8, 14, 0.10), rgba(1, 8, 14, 0.10)),
-        url("./assets/background.png") center / cover no-repeat;
-      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48);
-    }
-
-    .card::before {
-      content: none;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
+        linear-gradient(180deg, rgba(1, 8, 14, 0.08), rgba(1, 8, 14, 0.08)),
+        url("./assets/background.png") top center / contain no-repeat;
+      overflow: hidden;
     }
 
     .intro {
       position: absolute;
-      left: 7.3%;
-      top: 24.5%;
-      width: 50%;
+      left: 4.9%;
+      top: 23.6%;
+      width: 59%;
     }
 
     .name {
       margin: 0;
-      font-size: clamp(2.5rem, 5.9vw, 5.45rem);
-      line-height: 0.96;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.2rem, 9vw, 3.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
       font-weight: 800;
       text-shadow: 0 3px 14px rgba(0, 0, 0, 0.26);
     }
 
     .role {
-      margin: 2.2% 0 0;
-      font-size: clamp(1.1rem, 3vw, 2.15rem);
-      line-height: 1.16;
+      margin: 0.45rem 0 0;
+      font-size: clamp(1.02rem, 3.8vw, 1.75rem);
+      line-height: 1.1;
       color: var(--muted);
       font-weight: 300;
     }
 
     .company {
-      margin: 1.8% 0 0;
-      font-size: clamp(1.2rem, 3.15vw, 2.3rem);
+      margin: 0.28rem 0 0;
+      font-size: clamp(1.05rem, 4vw, 1.8rem);
       line-height: 1.1;
       color: var(--blue);
       font-weight: 400;
     }
 
-    .contact-panel {
+    .save {
       position: absolute;
-      left: 6.5%;
-      top: 43.7%;
-      width: 60.5%;
-      border-top: 2px solid var(--line);
-      padding-top: 3.3%;
+      right: 6%;
+      bottom: 4.2%;
+      width: clamp(3rem, 10vw, 4.2rem);
+      height: clamp(3rem, 10vw, 4.2rem);
+      border: 0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #1ba9ff, #0b74b8);
+      color: white;
+      box-shadow: 0 10px 28px rgba(11, 116, 184, 0.34);
+      cursor: pointer;
     }
 
-    .lead-divider {
-      display: none;
+    .save svg {
+      width: 42%;
+      height: 42%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .content {
+      padding: 0.75rem 5.3% 1.4rem;
     }
 
     .contact-list,
     .detail-list {
       display: grid;
-      gap: 1.5rem;
-    }
-
-    .detail-list {
-      gap: 1.7rem;
+      gap: 0.9rem;
     }
 
     .row {
       display: grid;
-      grid-template-columns: 6.2rem minmax(0, 1fr);
-      align-items: center;
-      gap: 1.55rem;
+      grid-template-columns: 3.2rem minmax(0, 1fr);
+      gap: 0.85rem;
+      align-items: start;
       color: inherit;
       text-decoration: none;
+      min-width: 0;
     }
 
     a.row {
-      border-radius: 1.1rem;
-      transition: transform 0.16s ease, background-color 0.16s ease;
-    }
-
-    a.row:hover {
-      transform: translateX(4px);
-      background: rgba(255, 255, 255, 0.03);
+      border-radius: 1rem;
     }
 
     .icon {
-      width: 4.8rem;
-      height: 4.8rem;
+      width: 3.2rem;
+      height: 3.2rem;
       border: 2px solid var(--blue);
       border-radius: 50%;
       display: grid;
@@ -140,8 +143,8 @@
     }
 
     .icon svg {
-      width: 2.3rem;
-      height: 2.3rem;
+      width: 1.35rem;
+      height: 1.35rem;
       stroke: var(--blue);
       fill: none;
       stroke-width: 1.85;
@@ -149,325 +152,77 @@
       stroke-linejoin: round;
     }
 
-    .value {
-      font-size: clamp(1.2rem, 3.15vw, 2.25rem);
-      line-height: 1.2;
-      color: var(--text);
+    .text {
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
+      line-height: 1.16;
+      color: var(--white);
       overflow-wrap: anywhere;
-      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.24);
     }
 
-    .detail-list .value {
-      font-size: clamp(1.1rem, 2.85vw, 2rem);
-    }
-
-    .section-divider {
-      height: 2px;
-      background: var(--line);
-      margin: 1.9rem 0 1.9rem;
-    }
-
-    .address {
-      line-height: 1.28;
+    .address,
+    .hours {
+      font-size: clamp(0.96rem, 3.25vw, 1.2rem);
+      line-height: 1.16;
     }
 
     .hours-title {
       display: block;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.18rem;
       color: var(--blue);
       font-weight: 500;
     }
 
-    .save-icon {
-      width: 4.8rem;
-      height: 4.8rem;
-      border: 0;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #1ba9ff, #0b74b8);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 10px 28px rgba(11, 116, 184, 0.34);
+    .divider {
+      height: 2px;
+      background: rgba(26, 169, 255, 0.82);
+      margin: 0.9rem 0;
     }
 
-    .save-icon svg {
-      width: 2rem;
-      height: 2rem;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.9;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .actions {
-      position: absolute;
-      right: 4%;
-      bottom: 2.6%;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .save {
-      border: 0;
-      width: 4.8rem;
-      height: 4.8rem;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      padding: 0;
-      background: linear-gradient(135deg, #1ba9ff, #0b74b8);
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 10px 28px rgba(11, 116, 184, 0.34);
-    }
-
-    .save svg {
-      width: 2rem;
-      height: 2rem;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.9;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .mobile-card,
-    .mobile-hero,
-    .mobile-content,
-    .mobile-actions {
-      display: none;
-    }
-
-    @media (max-width: 900px) {
-      body {
-        padding: 0;
-        display: block;
-        background: #020a12;
+    @media (min-width: 700px) {
+      .content {
+        padding-top: 1rem;
       }
 
-      .card {
-        display: none;
+      .row {
+        grid-template-columns: 4.1rem minmax(0, 1fr);
+        gap: 1rem;
       }
 
-      .mobile-card {
-        display: block;
-        min-height: 100dvh;
-        background: linear-gradient(180deg, #020a12 0%, #04101b 100%);
-        color: var(--text);
+      .icon {
+        width: 4.1rem;
+        height: 4.1rem;
       }
 
-      .mobile-hero {
-        display: block;
-        position: relative;
-        width: 100%;
-        aspect-ratio: 1122 / 1402;
-        background:
-          linear-gradient(180deg, rgba(1, 8, 14, 0.10), rgba(1, 8, 14, 0.10)),
-          url("./assets/background.png") top center / contain no-repeat;
+      .icon svg {
+        width: 1.7rem;
+        height: 1.7rem;
       }
 
-      .mobile-hero .intro {
-        position: absolute;
-        left: 6%;
-        top: 23.6%;
-        width: 61%;
-      }
-
-      .mobile-hero .name {
-        font-size: clamp(1.7rem, 7vw, 2.55rem);
-        line-height: 0.95;
-      }
-
-      .mobile-hero .role {
-        margin-top: 0.35rem;
-        font-size: clamp(0.88rem, 3.4vw, 1.08rem);
-      }
-
-      .mobile-hero .company {
-        margin-top: 0.25rem;
-        font-size: clamp(0.95rem, 3.8vw, 1.18rem);
-      }
-
-      .mobile-content {
-        display: block;
-        padding: 0.4rem 5.5% 1rem;
-      }
-
-      .mobile-content .row {
-        grid-template-columns: 2.95rem minmax(0, 1fr);
-        gap: 0.8rem;
-        align-items: start;
-      }
-
-      .mobile-content .icon {
-        width: 2.9rem;
-        height: 2.9rem;
-        margin-top: 0.05rem;
-      }
-
-      .mobile-content .icon svg {
-        width: 1.25rem;
-        height: 1.25rem;
-      }
-
-      .mobile-content .value {
-        font-size: clamp(0.92rem, 3vw, 1.08rem);
-        line-height: 1.16;
-      }
-
-      .mobile-content .address,
-      .mobile-content .hours {
-        line-height: 1.16;
-      }
-
-      .mobile-content .section-divider {
-        margin: 0.85rem 0;
-      }
-
-      .mobile-actions {
-        display: flex;
-        justify-content: flex-end;
-        padding: 0 5.5% 1.4rem;
-      }
-
-      .mobile-actions .save {
-        width: 3rem;
-        height: 3rem;
-        box-shadow: 0 8px 22px rgba(11, 116, 184, 0.32);
-      }
-
-      .mobile-actions .save svg {
-        width: 1.08rem;
-        height: 1.08rem;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .mobile-hero .intro {
-        top: 23.4%;
-        width: 63%;
-      }
-
-      .mobile-hero .name {
-        font-size: clamp(1.6rem, 6.7vw, 2.25rem);
-      }
-
-      .mobile-hero .role {
-        font-size: clamp(0.82rem, 3.1vw, 0.98rem);
-      }
-
-      .mobile-hero .company {
-        font-size: clamp(0.88rem, 3.4vw, 1.04rem);
-      }
-
-      .mobile-content .value {
-        font-size: 0.9rem;
+      .divider {
+        margin: 1.1rem 0;
       }
     }
   </style>
 </head>
 <body>
-  <main class="card" aria-label="Tarjeta de contacto de Joel S&aacute;nchez">
-    <div class="overlay">
+  <main class="page" aria-label="Tarjeta de contacto de Joel S&aacute;nchez">
+    <section class="poster">
       <section class="intro">
         <h1 class="name">Joel S&aacute;nchez</h1>
         <p class="role">Ingeniero de servicio tecnico</p>
         <p class="company">Tecnoglobal &middot; Atlas Copco</p>
       </section>
 
-      <section class="contact-panel" aria-label="Informacion de contacto">
-        <div class="lead-divider" aria-hidden="true"></div>
-        <div class="contact-list">
-          <a class="row" href="tel:+34654311447" aria-label="Llamar al 654 31 14 47">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M6.7 4.5h2.6l1.5 4.2-1.7 1.7a16 16 0 0 0 5.2 5.2l1.7-1.7 4.2 1.5v2.6c0 .6-.4 1-1 1C11.9 19 5 12.1 5 5.5c0-.6.5-1 1.7-1z"></path>
-              </svg>
-            </span>
-            <span class="value">654 31 14 47</span>
-          </a>
-
-          <a class="row" href="mailto:jsanchez@tecnoglobal.es?subject=Contacto%20desde%20tarjeta%20digital" aria-label="Enviar correo a jsanchez arroba tecnoglobal punto es">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M3.5 6.5h17v11h-17z"></path>
-                <path d="m4.4 7.3 7.6 6 7.6-6"></path>
-              </svg>
-            </span>
-            <span class="value">jsanchez@tecnoglobal.es</span>
-          </a>
-
-          <a class="row" href="https://www.tecnoglobal.es" target="_blank" rel="noopener" aria-label="Abrir web de Tecnoglobal">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"></circle>
-                <path d="M3 12h18"></path>
-                <path d="M12 3a13.5 13.5 0 0 1 0 18"></path>
-                <path d="M12 3a13.5 13.5 0 0 0 0 18"></path>
-              </svg>
-            </span>
-            <span class="value">www.tecnoglobal.es</span>
-          </a>
-        </div>
-
-        <div class="section-divider" aria-hidden="true"></div>
-
-        <div class="detail-list">
-          <a class="row" href="https://maps.google.com/?q=Pol.%20Ind.%20L'Ametlla%20Park%20Calle%20Mas%20Dorca%2018%20nave%205%2008480%20L'Ametlla%20del%20Valles" target="_blank" rel="noopener" aria-label="Abrir ubicacion en Google Maps">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11z"></path>
-                <circle cx="12" cy="10" r="2.5"></circle>
-              </svg>
-            </span>
-            <span class="value address">
-              Pol. Ind. L'Ametlla Park &middot; Calle Mas Dorca, 18 nave 5<br>
-              08480 L'Ametlla del Valles (BCN) &middot; Spain
-            </span>
-          </a>
-
-          <div class="section-divider" aria-hidden="true"></div>
-
-          <div class="row">
-            <span class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"></circle>
-                <path d="M12 7v5l3 2"></path>
-              </svg>
-            </span>
-            <span class="value">
-              <span class="hours-title">Horario de atencion al cliente</span>
-              Lunes a jueves de 8:00h a 17:00h<br>
-              Viernes de 08:00h a 15:00h
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section class="actions" aria-label="Acciones">
-        <button class="save" type="button" onclick="downloadVCard()" aria-label="Guardar contacto">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M5 4.5h11l3 3V19a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19z"></path>
-            <path d="M8 4.5v5h7v-5"></path>
-            <path d="M8 20.5v-6h8v6"></path>
-          </svg>
-        </button>
-      </section>
-    </div>
-  </main>
-
-  <main class="mobile-card" aria-label="Tarjeta de contacto movil de Joel Sánchez">
-    <section class="mobile-hero">
-      <section class="intro">
-        <h1 class="name">Joel S&aacute;nchez</h1>
-        <p class="role">Ingeniero de servicio tecnico</p>
-        <p class="company">Tecnoglobal &middot; Atlas Copco</p>
-      </section>
+      <button class="save" type="button" onclick="downloadVCard()" aria-label="Guardar contacto">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M5 4.5h11l3 3V19a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19z"></path>
+          <path d="M8 4.5v5h7v-5"></path>
+          <path d="M8 20.5v-6h8v6"></path>
+        </svg>
+      </button>
     </section>
 
-    <section class="mobile-content" aria-label="Informacion de contacto movil">
+    <section class="content" aria-label="Informacion de contacto">
       <div class="contact-list">
         <a class="row" href="tel:+34654311447" aria-label="Llamar al 654 31 14 47">
           <span class="icon" aria-hidden="true">
@@ -475,7 +230,7 @@
               <path d="M6.7 4.5h2.6l1.5 4.2-1.7 1.7a16 16 0 0 0 5.2 5.2l1.7-1.7 4.2 1.5v2.6c0 .6-.4 1-1 1C11.9 19 5 12.1 5 5.5c0-.6.5-1 1.7-1z"></path>
             </svg>
           </span>
-          <span class="value">654 31 14 47</span>
+          <span class="text">654 31 14 47</span>
         </a>
 
         <a class="row" href="mailto:jsanchez@tecnoglobal.es?subject=Contacto%20desde%20tarjeta%20digital" aria-label="Enviar correo a jsanchez arroba tecnoglobal punto es">
@@ -485,7 +240,7 @@
               <path d="m4.4 7.3 7.6 6 7.6-6"></path>
             </svg>
           </span>
-          <span class="value">jsanchez@tecnoglobal.es</span>
+          <span class="text">jsanchez@tecnoglobal.es</span>
         </a>
 
         <a class="row" href="https://www.tecnoglobal.es" target="_blank" rel="noopener" aria-label="Abrir web de Tecnoglobal">
@@ -497,11 +252,11 @@
               <path d="M12 3a13.5 13.5 0 0 0 0 18"></path>
             </svg>
           </span>
-          <span class="value">www.tecnoglobal.es</span>
+          <span class="text">www.tecnoglobal.es</span>
         </a>
       </div>
 
-      <div class="section-divider" aria-hidden="true"></div>
+      <div class="divider" aria-hidden="true"></div>
 
       <div class="detail-list">
         <a class="row" href="https://maps.google.com/?q=Pol.%20Ind.%20L'Ametlla%20Park%20Calle%20Mas%20Dorca%2018%20nave%205%2008480%20L'Ametlla%20del%20Valles" target="_blank" rel="noopener" aria-label="Abrir ubicacion en Google Maps">
@@ -511,13 +266,13 @@
               <circle cx="12" cy="10" r="2.5"></circle>
             </svg>
           </span>
-          <span class="value address">
+          <span class="text address">
             Pol. Ind. L'Ametlla Park &middot; Calle Mas Dorca, 18 nave 5<br>
             08480 L'Ametlla del Valles (BCN) &middot; Spain
           </span>
         </a>
 
-        <div class="section-divider" aria-hidden="true"></div>
+        <div class="divider" aria-hidden="true"></div>
 
         <div class="row">
           <span class="icon" aria-hidden="true">
@@ -526,23 +281,13 @@
               <path d="M12 7v5l3 2"></path>
             </svg>
           </span>
-          <span class="value hours">
+          <span class="text hours">
             <span class="hours-title">Horario de atencion al cliente</span>
             Lunes a jueves de 8:00h a 17:00h<br>
             Viernes de 08:00h a 15:00h
           </span>
         </div>
       </div>
-    </section>
-
-    <section class="mobile-actions" aria-label="Acciones movil">
-      <button class="save" type="button" onclick="downloadVCard()" aria-label="Guardar contacto">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M5 4.5h11l3 3V19a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 19z"></path>
-          <path d="M8 4.5v5h7v-5"></path>
-          <path d="M8 20.5v-6h8v6"></path>
-        </svg>
-      </button>
     </section>
   </main>
 
